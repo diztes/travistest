@@ -18,11 +18,12 @@
     "mocha-lcov-reporter": "^1.3.0"
   },
   "scripts": {
-"test":"mocha"
+"test": "c8 --all --exclude coverage --exclude mochawesome-report/assets --exclude src/.internal --exclude test --reporter none mocha --reporter mochawesome",
+    "posttest": "c8 --all --exclude coverage --exclude mochawesome-report/assets --exclude src/.internal --exclude test report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/diztes/travistest.git"
+    "url": "git@github.com:diztes/travistest.git"
   },
   "author": "",
   "license": "ISC",
